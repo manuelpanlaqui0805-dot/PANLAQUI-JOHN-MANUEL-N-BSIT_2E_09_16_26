@@ -1,0 +1,130 @@
+ # section 2: HYPERBOLIC FUNCTION
+
+def hyperbolic menu ():
+
+print header ("HYPERBOLIC FUNCTION")
+
+print("""
+
+1.Compute sinh, cosh, tanh of a value
+
+2. Compute asinh, acosh, atanh of a value
+
+0. Back to main menu
+
+= """)
+
+▼
+
+choise = safe input ("Enter your choice:").strip()
+
+if choise=="1":
+
+x=get float("Enter a value x:"
+
+Print(f"\n sinh({x})={math.sinh(x)}")
+
+print(f" cosh({x})={math.cosh(x)}")
+
+print(f") tanh({x}) = {math.tanh(x)}")
+
+elif choise=="2":
+
+x=get_float("Enter a value x:")
+
+print()
+print header("EXPONENTIATION AND LOGARITHMIC FUNCTION")
+
+print("""
+
+1.show the value of e
+
+2.Compute exp(x)
+
+3.compute the natural log, log10, and log2 of a value
+
+4.compute log(x,y) -built-in vs math.pow
+
+0. Back to Main menu
+
+choise safe input("enter your choise:").strip()
+
+if choise == "1":
+
+print(f"\nmath.e {math.e}")
+
+I
+
+elif choise =="2":
+
+x= get float (Enter x:")
+
+print(f"\nexp{x}) = e^{x} = {math.exp(x)}")
+
+elif choise=="3":
+
+x = get_float( Enter a positive number x:")
+try:
+
+print(f"\n log ({x}) = {math.log(x)} natural log, basee)")
+
+print(f)"log10 ({X}) = {math.log10(x}")
+
+print (f: log2({x}) ={math.log2(x)}")
+
+expect value Error:
+
+print("Logarithms require x> 0. please try again.")
+
+elif choise=="4":
+
+x=get float("eneter x (must be>0")
+
+b=get float ("Enter the base b (must be > 0 and !=1"):")"
+
+try:
+
+print(f"\nlog({x}; base ={b})= math.log(x,b}")
+
+expect (valueerror, zerodivisionerror):
+
+print("invalid input for a logarithm with taht base.")
+
+elif choise=="5":
+
+x= get float(enter the base x:")
+
+y= get float (enter the exponent y:")
+
+print (f"\n built in pow({x},{y}) = {math.pow(x,y)}")
+b=get float ("Enter the base b (must be > 0 and !=1"):")"
+
+try:
+
+print(f"\nlog({x}; base ={b})= math.log(x,b}")
+
+expect (valueerror, zerodivisionerror):
+
+print("invalid input for a logarithm with taht base.")
+
+elif choise=="5":
+
+x= get float(enter the base x:")
+
+y= get float (enter the exponent y:")
+
+print (f"\n built in pow ({x},{y}) = {math.pow(x,y)}")
+
+print (f"(note: pow() can return an int for integer inputs;"
+
+"math.pow() always return a float.)")
+
+elif choise =="0":
+
+return
+
+else:
+
+print("ninvalid choise.")
+
+pause()
