@@ -1,0 +1,95 @@
+using System;
+
+namespace MiniPlayableGame
+{
+    class Program
+    {
+        const int GridWidth = 10;
+        const int GridHeight = 10;
+
+        static void Main(string[] args)
+        {
+            // Player initial position
+            int playerX = GridWidth / 2;
+            int playerY = GridHeight / 2;
+
+            // Score and collectible setup
+            int score = 0;
+            Random rng = new Random();
+            int starX = rng.Next(0, GridWidth);
+            int starY = rng.Next(0, GridHeight);
+
+            bool running = true;
+
+            while (running)
+            {
+                // Clear console and display score/instructions
+                try { Console.Clear(); } catch { }
+                Console.WriteLine($"=== C# MINI GAME ===");
+                Console.WriteLine($"Score: {score}");
+                Console.WriteLine("Move: W (Up), A (Left), S (Down), D (Right) + Enter. Type Q to Quit.");
+                Console.WriteLine(new string('-', 20));
+
+                // Draw 10x10 Grid
+                for (int y = 0; y < GridHeight; y++)
+                {
+                    for (int x = 0; x < GridWidth; x++)
+                    {
+                        if (x == playerX && y == playerY)
+                        {
+                            Console.Write('@'); // Player character
+                        }
+                        else if (x == starX && y == starY)
+                        {
+                            Console.Write('*'); // Collectible pawn
+                        }
+                        else
+                        {
+                            Console.Write('.'); // Background grid
+                        }
+                    }
+                    Console.WriteLine();
+                }
+
+                // Player Input
+                Console.Write("\nMove: ");
+                string input = Console.ReadLine();
+                input = input == null ? "" : input.Trim().ToLower();
+
+                // Movement Controls
+                switch (input)
+                {
+                    case "w":
+                        playerY = Math.Max(0, playerY - 1);
+                        break;
+                    case "s":
+                        playerY = Math.Min(GridHeight - 1, playerY + 1);
+                        break;
+                    case "a":
+                        playerX = Math.Max(0, playerX - 1);
+                        break;
+                    case "d":
+                        playerX = Math.Min(GridWidth - 1, playerX + 1);
+                        break;
+                    case "q":
+                        running = false;
+                        break;
+                    default:
+                        break;
+                }
+
+                // Collision Detection: Check if player collected the star
+                if (playerX == starX && playerY == starY)
+                {
+                    score++;
+                    // Respawn star at a new random location
+                    starX = rng.Next(0, GridWidth);
+                    starY = rng.Next(0, GridHeight);
+                }
+            }
+
+            Console.WriteLine($"\nGame Over! Final Score: {score}");
+            Console.WriteLine("Thanks for playing!");
+        }
+    }
+}
